@@ -9,7 +9,7 @@ services:
   - docker
 
 install:
-  - echo "install nothing!"
+  - echo "install nothing!!"
 
 script:
   - docker build -t sendemail .
@@ -18,5 +18,5 @@ script:
   - docker push vivekyad4v/docker-alpine-sendemail:$IMAGE_TAG
 
 after_success:
-  - echo "docker build & push image successful!"
+  - echo "docker build & push image successful!!"
 

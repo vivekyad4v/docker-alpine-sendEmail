@@ -1,0 +1,17 @@
+version: '3.2'
+
+services:
+  sendemail:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    image: sendemail:latest
+    hostname: sendemail
+    container_name: sendemail
+    environment:
+      - FROM_EMAIL=${FROM_EMAIL}
+      - TO_EMAIL=${TO_EMAIL}
+      - PASSWD_EMAIL=${PASSWD_EMAIL}
+      - SMTP_EMAIL=${SMTP_EMAIL}
+      - SUBJECT_EMAIL=${SUBJECT_EMAIL}
+      - CONTENT_EMAIL=${CONTENT_EMAIL}

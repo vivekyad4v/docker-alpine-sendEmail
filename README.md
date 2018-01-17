@@ -1,4 +1,4 @@
-[![LinkedIn](https://github.com/vivekyad4v/public-images/raw/master/generic/LinkedIn-vivekyad4v.png)](https://www.linkedin.com/in/vivekyad4v/)  &nbsp;   &nbsp;   [![Build Status](https://travis-ci.org/vivekyad4v/docker-cron-sendEmail-shell-scripts.svg?branch=master)](https://travis-ci.org/vivekyad4v/docker-cron-sendEmail-shell-scripts)
+[![LinkedIn](https://github.com/vivekyad4v/public-images/raw/master/generic/LinkedIn-vivekyad4v.png)](https://www.linkedin.com/in/vivekyad4v/)  &nbsp;   &nbsp;   [![Build Status](https://travis-ci.org/vivekyad4v/docker-alpine-sendEmail.svg?branch=master)](https://travis-ci.org/vivekyad4v/docker-alpine-sendEmail)
 
 # docker-alpine-sendEmail
 sendEmail binary in docker alpine
@@ -14,8 +14,16 @@ $ export SUBJECT_EMAIL="This should be the email subject"
 $ export CONTENT_EMAIL="This is the content/body of email"      ## You can give file as a content
 ```
 
+### Using Public Image, needs environment variables to be predefined
+
+```sh
+docker-compose run --rm vivekyad4v/docker-alpine-sendemail bash -c "sendEmail -u $SUBJECT_EMAIL -m $CONTENT_EMAIL -f $FROM_EMAIL -t $TO_EMAIL -s $SMTP_EMAIL -o tls=yes -xu $FROM_EMAIL -xp $PASSWD_EMAIL"
+```
+
 ### sendEmail 
 
 ```sh
 docker-compose run --rm sendemail bash -c "sendEmail -u $SUBJECT_EMAIL -m $CONTENT_EMAIL -f $FROM_EMAIL -t $TO_EMAIL -s $SMTP_EMAIL -o tls=yes -xu $FROM_EMAIL -xp $PASSWD_EMAIL"
 ```
+
+If this helps, Fork & Star it :)

@@ -1,0 +1,22 @@
+sudo: required
+
+language: shell
+
+env:
+  - IMAGE_TAG=v1
+
+services:
+  - docker
+
+install:
+  - echo "install nothing!"
+
+script:
+  - docker build -t sendemail .
+  - docker tag sendemail:latest vivekyad4v/docker-alpine-sendemail:$IMAGE_TAG
+  - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD" https://index.docker.io/v1/
+  - docker push vivekyad4v/docker-alpine-sendemail:$IMAGE_TAG
+
+after_success:
+  - echo "docker build & push image successful!"
+
